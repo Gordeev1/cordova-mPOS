@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="mPOS" version="1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <name>mPOS</name>
+    
+    <js-module name="mPOS" src="www/mPOS.js">
+        <clobbers target="mPOS" />
+    </js-module>
+
+    <platform name='android'>
+        
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="mPOS">
+                <param name="android-package" value="org.gordeev.mpos.mPOS" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/java/org/gordeev/mpos/mPOS.java" target-dir="src/org/gordeev/mpos"/>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+
+        <hook type='after_platform_add' src='./hooks/copyLibToProject.js' />
+        <hook type='after_plugin_add' src='./hooks/copyLibToProject.js' />
+
+    </platform>
+
+</plugin>

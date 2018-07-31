@@ -1,0 +1,19 @@
+{
+	"name": "cordova-mPOS",
+	"displayName": "cordova-mPOS",
+	"version": "1.0.0",
+	"description": "The cordova mPOS plugin provides methods to connect and manage ICMP or D200 UPOS devices.",
+	"scripts": {},
+	"types": "./types/index.d.ts",
+	"author": "Beeline Digital",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"cordova-android": "7.0.0"
+	},
+	"cordova": {
+		"id": "cordova-mPOS",
+		"platforms": [
+			"android"
+		]
+	}
+}
