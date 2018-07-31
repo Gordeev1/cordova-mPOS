@@ -8,7 +8,7 @@ function formatTransactionInfo(report) {
 }
 
 var mPOS = {
-	activateManagerAndGetAvailableDevices: function() {
+	activateManagerAndGetAvailableDevices: function(type) {
 		return new Promise(function(resolve, reject) {
 			return exec(
 				function(devices) {
@@ -25,7 +25,8 @@ var mPOS = {
 				},
 				reject,
 				'mPOS',
-				'activateManagerAndGetAvailableDevices'
+				'activateManagerAndGetAvailableDevices',
+				[type]
 			);
 		});
 	},

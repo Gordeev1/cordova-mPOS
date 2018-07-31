@@ -24,7 +24,6 @@ import ru.m4bank.connectionreaders.activate.handler.ConnectionReader;
 public class mPOS extends CordovaPlugin implements ConnectionReader, CardReaderResponseExternalHandler {
 
     private static final String TAG = "mPOS";
-    private static final ReaderType readerType = ReaderType.ICMP_UPOS;
     private static final String countryCode = "643";
     private static final String currencyExponent = "2";
 
@@ -55,7 +54,9 @@ public class mPOS extends CordovaPlugin implements ConnectionReader, CardReaderR
 
             if (action.equals(ACTIVATE_MANAGER)) {
                 this.callbackContext = callbackContext;
-                activateReader();
+                String type = args.optString(0);
+                ReaderType readerType = type.equals("D200") ? ReaderType.D200 : ReaderType.ICMP_UPOS;
+                activateReader(readerType);
             }
 
             if (action.equals(CONNECT)) {
@@ -111,7 +112,7 @@ public class mPOS extends CordovaPlugin implements ConnectionReader, CardReaderR
         return;
     }
 
-    public void activateReader() {
+    public void activateReader(ReaderType readerType) {
         cordova.getThreadPool().execute(new Runnable() {
             public void run() {
                 managerStateReader.activateReader(readerType);

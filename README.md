@@ -1,10 +1,10 @@
 # Cordova MPOS
 
-Cordova mPOS is a plugin for m4bank sdk provides methods to connect and manage ICMP or D200 UPOS devices.
+Cordova mPOS is a plugin for [m4bank sdk](http://m4bank.ru/mpos) provides methods to connect and manage ICMP or D200 UPOS devices.
 
 # Installation
 
-1.  Get mPOS lib from vendor (http://m4bank.ru/) and add it to `<project_root>/libs/android/mPOS`
+1.  Get mPOS lib from [vendor](http://m4bank.ru/) and add it to `<project_root>/libs/android/mPOS`
     ![like this](https://imgur.com/5GZ8emO.png)
 
 2.  Add plugin to your project
@@ -35,7 +35,7 @@ cordova plugin add https://github.com/gordeev1/mPOS
 Returns POS devices which paired with a phone
 
 ```javascript
-mPOS.activateManagerAndGetAvailableDevices().then(devices => console.log(devices));
+mPOS.activateManagerAndGetAvailableDevices('ICMP').then(devices => console.log(devices));
 ```
 
 ```javascript

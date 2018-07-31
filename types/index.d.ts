@@ -2,6 +2,8 @@ interface Window {
 	mPOS: mPOS;
 }
 
+type ReaderType = 'ICMP' : 'D200';
+
 type Device = {
 	name: string;
 	address: string;
@@ -45,7 +47,7 @@ type ReconciliationReport = {
  * The mPOS object provides methods to connect and manage ICMP or D200 UPOS devices.
  */
 interface mPOS {
-	activateManagerAndGetAvailableDevices: () => Promise<Device[]>;
+	activateManagerAndGetAvailableDevices: (type?: ReaderType) => Promise<Device[]>;
 	connect: (deviceID: string) => Promise<void>;
 	disconnect: () => Promise<void>;
 	isHaveConnectedReader: () => Promise<boolean>;
